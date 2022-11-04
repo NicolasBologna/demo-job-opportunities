@@ -1,0 +1,39 @@
+:host {
+  display: flex;
+  justify-content: center;
+}
+
+form {
+  max-width: 20rem;
+}
+.mat-form-field {
+  min-width: 20rem;
+    margin: 1rem 0 1rem 0;
+}
+
+mat-card-title,
+mat-card-content {
+  display: flex;
+  justify-content: center;
+}
+
+.button {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.error {
+  color: red;
+}
+
+.register-container {
+  background-color: #1b1c1dba;
+  padding: 2rem;
+  margin-top: 1rem;
+  color: rgba(255, 255, 255, 0.7);
+  border-radius: 0.5rem;
+}
+
+.mat-spinner{
+  margin: auto;
+}

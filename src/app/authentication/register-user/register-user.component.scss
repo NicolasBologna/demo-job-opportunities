@@ -1,0 +1,42 @@
+em {
+  color: #e71515;
+  font-weight: bold;
+}
+
+.ng-invalid.ng-touched {
+  border-color: red;
+}
+mat-button-toggle-group {
+  margin: auto;
+}
+
+mat-card-title,
+mat-card-content {
+  display: flex;
+  justify-content: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.button {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.error {
+  color: #e71515;
+  font-size: small;
+}
+
+.register-container {
+  background-color: #1b1c1dba;
+  padding: 2rem;
+  margin-top: 1rem;
+  color: rgba(255, 255, 255, 0.7);
+  border-radius: 0.5rem;
+  max-width: 30rem;
+  margin: auto;
+}
