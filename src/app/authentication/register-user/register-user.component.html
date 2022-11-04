@@ -14,28 +14,30 @@
         </mat-button-toggle>
       </mat-button-toggle-group>
     </div>
-    <mat-form-field appearance="standard">
+    <mat-form-field appearance="standard" color="accent">
       <mat-label>Nombre</mat-label>
       <input matInput placeholder="Juan" formControlName="firstName">
-      <mat-error *ngIf="validateControl('firstName') && hasError('firstName', 'required')">Debe ingresar un nombre</mat-error>
+      <mat-error *ngIf="validateControl('firstName') && hasError('firstName', 'required')">Debe ingresar un nombre
+      </mat-error>
     </mat-form-field>
-    <mat-form-field appearance="standard">
+    <mat-form-field appearance="standard" color="accent">
       <mat-label>Apellido</mat-label>
       <input matInput placeholder="Perez" formControlName="lastName">
-      <mat-error *ngIf="validateControl('lastName') && hasError('lastName', 'required')">Debe ingresar un apellido</mat-error>
+      <mat-error *ngIf="validateControl('lastName') && hasError('lastName', 'required')">Debe ingresar un apellido
+      </mat-error>
     </mat-form-field>
-    <mat-form-field appearance="standard">
+    <mat-form-field appearance="standard" color="accent">
       <mat-label>Email</mat-label>
       <input matInput placeholder="ejemplo@mail.com" formControlName="email">
       <mat-error *ngIf="validateControl('email') && hasError('email', 'required')">Debe ingresar un email</mat-error>
     </mat-form-field>
-    <mat-form-field appearance="standard">
+    <mat-form-field appearance="standard" color="accent">
       <mat-label>Contraseña</mat-label>
       <input matInput type="password" formControlName="password">
       <mat-error *ngIf="validateControl('password') && hasError('password', 'required')">Debe ingresar una contraseña
       </mat-error>
     </mat-form-field>
-    <mat-form-field appearance="standard">
+    <mat-form-field appearance="standard" color="accent">
       <mat-label>Confirmá contraseña</mat-label>
       <input matInput type="password" formControlName="confirm">
       <mat-error *ngIf="validateControl('confirm') && hasError('confirm', 'required')">Por favor confirme la contraseña
