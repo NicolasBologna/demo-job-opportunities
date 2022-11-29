@@ -1,14 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { JobOffersComponent } from './job-offers/job-offers.component';
-import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './error-pages/not-found/not-found.component';
 import { InternalServerComponent } from './error-pages/internal-server/internal-server.component';
 import { AuthGuard } from './common/guards/auth.guard';
-import { PrivacyComponent } from './privacy/privacy.component';
 import { ForbiddenComponent } from './error-pages/forbidden/forbidden.component';
-import { AdminGuard } from './common/guards/admin.guard';
 
 const routes: Routes = [
   { path: '404', component: NotFoundComponent },
@@ -22,6 +18,7 @@ const routes: Routes = [
   {
     matcher: (url) => {
       const user_type = localStorage.getItem('user_type');
+      console.log(user_type);
       if (user_type === 'CompanyAgent') {
         return url.length ? { consumed: [] } : { consumed: url };
       }
@@ -34,7 +31,7 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   { path: '', redirectTo: '/auth', pathMatch: 'full' },
-  { path: '**', redirectTo: '/404', pathMatch: 'full' },
+  { path: '**', redirectTo: '/home', pathMatch: 'full' },
 ];
 
 @NgModule({

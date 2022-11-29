@@ -2,6 +2,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { PasswordConfirmationValidatorService } from 'src/app/common/custom-validators/password-confirmation-validator.service';
 import { UserForRegistrationDto } from 'src/app/common/models/user/user-for-registration';
 import { AuthenticationService } from 'src/app/common/services/authentication.service';
@@ -13,12 +14,14 @@ import { AuthenticationService } from 'src/app/common/services/authentication.se
 })
 export class RegisterUserComponent implements OnInit {
   public registerForm: FormGroup;
+  public showSpinner: boolean = false;
   public errorMessage: string = '';
   public showError: boolean;
   constructor(
     private authService: AuthenticationService,
     private passConfValidator: PasswordConfirmationValidatorService,
-    private router: Router
+    private router: Router,
+    private toastrSerive: ToastrService
   ) {}
   ngOnInit(): void {
     this.registerForm = new FormGroup({
@@ -49,6 +52,7 @@ export class RegisterUserComponent implements OnInit {
     return this.registerForm.get(controlName).hasError(errorName);
   };
   public registerUser = (registerFormValue) => {
+    this.showSpinner = true;
     this.showError = false;
     const formValues = { ...registerFormValue };
     const user: UserForRegistrationDto = {
@@ -60,10 +64,19 @@ export class RegisterUserComponent implements OnInit {
       userType: formValues.userType,
     };
     this.authService.registerUser('auth/register', user).subscribe({
-      next: (_) => this.router.navigate(['/authentication/login']),
-      error: (err: HttpErrorResponse) => {
-        this.errorMessage = err.message;
+      next: (_) => {
+        this.router.navigate(['/auth/login']);
+        this.toastrSerive.success(
+          'Por favor inicie sesión',
+          'Usuario registrado correctamente!'
+        );
+        this.showSpinner = false;
+      },
+      error: (err: any) => {
+        console.log(err);
+        this.errorMessage = err;
         this.showError = true;
+        this.showSpinner = false;
       },
     });
   };

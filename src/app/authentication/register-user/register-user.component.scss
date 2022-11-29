@@ -1,3 +1,8 @@
+:host {
+  display: flex;
+  justify-content: center;
+}
+
 em {
   color: #e71515;
   font-weight: bold;
@@ -16,9 +21,9 @@ mat-card-content {
   justify-content: center;
 }
 
+
 form {
-  display: flex;
-  flex-direction: column;
+  max-width: 20rem;
 }
 
 .button {
@@ -32,11 +37,67 @@ form {
 }
 
 .register-container {
-  background-color: #1b1c1dba;
+  background-color: #01000a;
   padding: 2rem;
-  margin-top: 1rem;
+  margin: 0.3rem;
   color: rgba(255, 255, 255, 0.7);
-  border-radius: 0.5rem;
+  border-radius: 0.3rem;
+  z-index: 2;
   max-width: 30rem;
+}
+
+.mat-spinner{
   margin: auto;
+}
+
+.gradient-border  {
+  --border-width: 3px !important;
+
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Lato, sans-serif;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  color: white;
+  background: #222;
+  border-radius: var(--border-width);
+
+
+  &::after {
+    position: absolute;
+    content: "";
+    top: calc(-1 * var(--border-width));
+    left: calc(-1 * var(--border-width));
+    z-index: 1;
+    width: calc(100% + var(--border-width) * 2);
+    height: calc(100% + var(--border-width) * 2);
+    background: linear-gradient(
+      60deg,
+      hsl(224, 85%, 66%),
+      hsl(269, 85%, 66%),
+      hsl(314, 85%, 66%),
+      hsl(359, 85%, 66%),
+      hsl(44, 85%, 66%),
+      hsl(89, 85%, 66%),
+      hsl(134, 85%, 66%),
+      hsl(179, 85%, 66%)
+    );
+    background-size: 300% 300%;
+    background-position: 0 50%;
+    border-radius: calc(2 * var(--border-width));
+    animation: moveGradient 4s alternate infinite;
+  }
+}
+
+@keyframes moveGradient {
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+
+.mat-button-toggle-label-content {
+  line-height: 16px !important;
 }

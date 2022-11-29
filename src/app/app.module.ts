@@ -49,7 +49,7 @@ export function tokenGetter() {
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
-        allowedDomains: ['localhost:7278'], //Esto le dice que a todo lo que tenga este dominio le meta el JWT
+        allowedDomains: ['localhost:7278', 'https://test-deploy.somee.com'], //Esto le dice que a todo lo que tenga este dominio le meta el JWT
         disallowedRoutes: [],
       },
     }),

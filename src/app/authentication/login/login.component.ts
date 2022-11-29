@@ -60,7 +60,7 @@ export class LoginComponent implements OnInit {
         this.router.navigate([this.returnUrl]);
       },
       error: (err: HttpErrorResponse) => {
-        this.errorMessage = err.message;
+        this.errorMessage = 'Usuario y/o contraseña incorrectos';
         this.toastrSerive.error('Hubo un error', 'Intente nuevamente');
 
         this.showError = true;

@@ -69,11 +69,11 @@ export class ErrorHandlerService {
   };
 
   private handleBadRequest = (error: HttpErrorResponse): string => {
-    if (this.router.url === '/authentication/register') {
+    if (this.router.url === '/auth/register') {
       let message = '';
       const values = Object.values(error.error.errors);
       values.map((m: string) => {
-        message += m + '<br>';
+        message += m + ', ';
       });
       return message.slice(0, -4);
     } else {

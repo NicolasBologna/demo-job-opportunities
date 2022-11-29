@@ -4,6 +4,8 @@
 
 export const environment = {
   production: false,
+  //urlAddress: 'https://test-deploy.somee.com/api',
+
   urlAddress: 'https://localhost:7278/api',
 };
 
