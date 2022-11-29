@@ -15,6 +15,7 @@ import { MaterialModule } from '../material.module';
     ]),
     RouterModule.forChild([{ path: 'login', component: LoginComponent }]),
     RouterModule.forChild([{ path: '', component: LoginComponent }]),
+    RouterModule.forChild([{ path: '*', component: LoginComponent }]),
     ReactiveFormsModule,
     MaterialModule,
   ],
